@@ -26,8 +26,8 @@
       <p><strong>Banco:</strong> Banco BAI</p>
       <p><strong>Nome:</strong> Venancio Calulemi Chitumaba</p>
       <p><strong>IBAN:</strong> 0040 0000 8293 0298 1018 7</p>
-      <p id="refCode"><strong>Referência:</strong> —</p>
-      <button onclick="generateReference()" style="background:#007bff; color:white; border:none; padding:5px 10px; border-radius:5px; cursor:pointer;">
+      <p id="refCode"><strong>Referência:</strong> Clique no botão abaixo 👇</p>
+      <button onclick="generateReference()" style="background:#007bff; color:white; border:none; padding:8px 15px; border-radius:5px; cursor:pointer;">
         Gerar Referência 🔑
       </button>
     </div>
@@ -41,7 +41,7 @@
 
 <!-- Script -->
 <script>
-const WHATSAPP_NUMBER = "244933094640"; // <-- teu número de WhatsApp
+const WHATSAPP_LINK = "https://wa.me/qr/6QMPARXJ2COKD1"; // <-- teu link fixo
 
 // Abrir Modal
 function openPayment(){
@@ -59,11 +59,11 @@ function generateReference(){
   document.getElementById("refCode").innerHTML = "<strong>Referência:</strong> " + ref;
 }
 
-// Pagamento via WhatsApp
+// Pagamento via WhatsApp (com referência)
 function payWithWhatsapp(){
   const ref = "REF-" + Math.floor(Math.random()*90000 + 10000);
   const text = encodeURIComponent(`Olá, quero pagar o curso. Minha referência: ${ref}`);
-  window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${text}`, "_blank");
+  window.open(`${WHATSAPP_LINK}?text=${text}`, "_blank");
 }
 </script>
 
@@ -215,7 +215,7 @@ function payWithWhatsapp(){
                             <li><i class="fas fa-check text-success"></i> Materiais em PDF</li>
                             <li><i class="fas fa-check text-success"></i> Suporte Básico</li>
                         </ul>
-                        <button class="btn btn-primary w-100 mb-2" onclick="buyCourse(1)">Comprar Agora</button>
+                        <button class="btn btn-primary w-100 mb-2" onclick="buyCourse(1)"><button onclick="openPayment()">Comprar Agora</button>
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -228,7 +228,7 @@ function payWithWhatsapp(){
                             <li><i class="fas fa-check text-success"></i> Webinars Mensais</li>
                             <li><i class="fas fa-check text-success"></i> Suporte Prioritário</li>
                         </ul>
-                        <button class="btn btn-primary w-100 mb-2" onclick="buyCourse(2)">Comprar Agora</button>
+                        <button class="btn btn-primary w-100 mb-2" onclick="buyCourse(2)"><button onclick="openPayment()">Comprar Agora</button>
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -241,7 +241,7 @@ function payWithWhatsapp(){
                             <li><i class="fas fa-check text-success"></i> Mentoria Personalizada</li>
                             <li><i class="fas fa-check text-success"></i> Acesso Vitalício + Certificado</li>
                         </ul>
-                        <button class="btn btn-primary w-100 mb-2" onclick="buyCourse(3)">Comprar Agora</button>
+                        <button class="btn btn-primary w-100 mb-2" onclick="buyCourse(3)"><button onclick="openPayment()">Comprar Agora</button>
                     </div>
                 </div>
             </div>
@@ -394,6 +394,7 @@ cd SEU_REPO
 git add index.html
 git commit -m "Adicionar redirecionamento / formulário de compra"
 git push origin main   # ou master conforme o teu repo
+
 
 
 

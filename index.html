@@ -10,20 +10,60 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet">
     <style><!-- Scripts necessários -->
+<script><!-- Modal de Pagamento -->
+<div id="paymentModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.7); z-index:9999; justify-content:center; align-items:center;">
+  <div style="background:#fff; padding:20px; border-radius:10px; width:90%; max-width:400px; text-align:center;">
+    <h2>Escolha o Método de Pagamento</h2>
+    
+    <!-- Botão WhatsApp -->
+    <button onclick="payWithWhatsapp()" style="background:#25D366; color:white; border:none; padding:10px 20px; margin:10px; border-radius:5px; cursor:pointer;">
+      Pagar via WhatsApp 💬
+    </button>
+    
+    <!-- Dados Bancários -->
+    <div style="margin-top:20px; text-align:left;">
+      <h3>Transferência Bancária</h3>
+      <p><strong>Banco:</strong> Banco BAI</p>
+      <p><strong>Nome:</strong> Venancio Calulemi Chitumaba</p>
+      <p><strong>IBAN:</strong> 0040 0000 8293 0298 1018 7</p>
+      <p id="refCode"><strong>Referência:</strong> —</p>
+      <button onclick="generateReference()" style="background:#007bff; color:white; border:none; padding:5px 10px; border-radius:5px; cursor:pointer;">
+        Gerar Referência 🔑
+      </button>
+    </div>
+    
+    <br>
+    <button onclick="closePayment()" style="background:red; color:white; border:none; padding:10px 20px; border-radius:5px; cursor:pointer;">
+      Fechar
+    </button>
+  </div>
+</div>
+
+<!-- Script -->
 <script>
-/* CONFIGURAÇÃO */
-const WHATSAPP_NUMBER = '244933094640'; // <-- teu número aqui
+const WHATSAPP_NUMBER = "244933094640"; // <-- teu número de WhatsApp
 
-/* BOTÃO DE COMPRA */
-function buyCourse(id){
-  const courseNames = {
-    1:'Iniciante',
-    2:'Intermediário',
-    3:'Avançado'
-  };
+// Abrir Modal
+function openPayment(){
+  document.getElementById("paymentModal").style.display = "flex";
+}
 
-  const text = encodeURIComponent(`Olá, quero comprar o curso ${courseNames[id]} (id:${id}).`);
-  window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${text}`, '_blank');
+// Fechar Modal
+function closePayment(){
+  document.getElementById("paymentModal").style.display = "none";
+}
+
+// Gerar Referência Automática
+function generateReference(){
+  const ref = "REF-" + Math.floor(Math.random()*90000 + 10000);
+  document.getElementById("refCode").innerHTML = "<strong>Referência:</strong> " + ref;
+}
+
+// Pagamento via WhatsApp
+function payWithWhatsapp(){
+  const ref = "REF-" + Math.floor(Math.random()*90000 + 10000);
+  const text = encodeURIComponent(`Olá, quero pagar o curso. Minha referência: ${ref}`);
+  window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${text}`, "_blank");
 }
 </script>
 
@@ -354,5 +394,6 @@ cd SEU_REPO
 git add index.html
 git commit -m "Adicionar redirecionamento / formulário de compra"
 git push origin main   # ou master conforme o teu repo
+
 
 

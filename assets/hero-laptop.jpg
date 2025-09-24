@@ -1,1 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO -->
+  <title>School Trader Academy Angola | Formação Profissional em Trading</title>
+  <meta name="description" content="Aprenda trading profissional com a School Trader Academy Angola. Cursos de Forex, análise técnica, COT e estratégias institucionais. Torne-se um trader de elite em Angola.">
+  <meta name="keywords" content="Trading Angola, Forex Angola, Trader de Elite, Curso de Trading, Análise COT, School Trader Academy, Forex África, Investimentos Angola">
+  <meta name="author" content="Venancio Calulemi Chitumaba">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="School Trader Academy Angola">
+  <meta property="og:description" content="Cursos de Forex e Trading profissional em Angola.">
+  <meta property="og:image" content="assets/hero-laptop.jpg">
+  <meta property="og:url" content="https://SEU-USUARIO.github.io/NOME-REPO/">
+  <meta property="og:type" content="website">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="School Trader Academy Angola">
+  <meta name="twitter:description" content="Cursos de Forex e Trading profissional em Angola.">
+  <meta name="twitter:image" content="assets/hero-laptop.jpg">
+
+  <!-- Estilo avançado -->
+  <style>
+    * { box-sizing: border-box; margin:0; padding:0; font-family: Arial, sans-serif; }
+    body { background-color: #f8f9fa; color: #333; }
+
+    header { position: relative; height: 100vh; overflow: hidden; }
+    header video { width: 100%; height: 100%; object-fit: cover; }
+    .hero-overlay { position: absolute; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.5); display:flex; flex-direction: column; justify-content:center; align-items:center; text-align:center; color:#fff; padding:20px; }
+    .hero-overlay h1 { font-size:3em; margin-bottom:20px; }
+    .hero-overlay p { font-size:1.3em; margin-bottom:30px; }
+    .btn { padding:12px 25px; margin:5px; text-decoration:none; font-weight:bold; border-radius:5px; display:inline-block; transition:0.3s; }
+    .btn-whatsapp { background-color:#25D366; color:#fff; }
+    .btn-whatsapp:hover { background-color:#1ebe5a; }
+    .btn-pagamento { background-color:#007BFF; color:#fff; }
+    .btn-pagamento:hover { background-color:#0056b3; }
+
+    section { padding:50px 20px; max-width:1200px; margin:auto; }
+    h2 { margin-bottom:20px; font-size:2em; text-align:center; }
+
+    .courses { display:flex; gap:20px; flex-wrap:wrap; justify-content:center; }
+    .course-card { background:#fff; border-radius:10px; padding:20px; width:300px; box-shadow:0 4px 10px rgba(0,0,0,0.1); transition:0.3s; }
+    .course-card:hover { transform: translateY(-5px); box-shadow:0 6px 15px rgba(0,0,0,0.15); }
+    .course-card h3 { margin-bottom:10px; font-size:1.5em; }
+    .course-card p { font-size:1em; color:#555; }
+
+    ul { list-style:none; padding:0; }
+    ul li { padding:10px 0; font-size:1.1em; }
+
+    footer { text-align:center; padding:20px; background-color:#333; color:#fff; }
+
+    @media(max-width:768px) {
+      .hero-overlay h1{font-size:2em;} 
+      .hero-overlay p{font-size:1em;}
+      .courses{flex-direction:column; align-items:center;}
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <video autoplay muted loop>
+      <source src="assets/hero-video.mp4" type="video/mp4">
+      Seu navegador não suporta vídeo.
+    </video>
+    <div class="hero-overlay">
+      <h1>School Trader Academy Angola</h1>
+      <p>Formação profissional em Trading, Forex e Análise COT</p>
+      <a href="https://wa.me/qr/6QMPARXJ2COKD1" class="btn btn-whatsapp" target="_blank">Fale conosco no WhatsApp</a>
+      <a href="#pagamentos" class="btn btn-pagamento">Ver métodos de pagamento</a>
+    </div>
+  </header>
+
+  <section id="pagamentos">
+    <h2>Métodos de Pagamento</h2>
+    <p>Escolha o seu método preferido:</p>
+    <ul>
+      <li><strong>Banco BAI:</strong> Venancio Calulemi Chitumaba</li>
+      <li><strong>Multicaixa:</strong> Venancio Calulemi Chitumaba</li>
+    </ul>
+  </section>
+
+  <section id="cursos">
+    <h2>Nossos Cursos</h2>
+    <div class="courses">
+      <div class="course-card">
+        <h3>Curso de Forex</h3>
+        <p>Aprenda a operar Forex do zero ao avançado com técnicas profissionais e Price Action.</p>
+      </div>
+      <div class="course-card">
+        <h3>Análise Técnica e COT</h3>
+        <p>Domine análise técnica e o relatório COT para entender o movimento do mercado institucional.</p>
+      </div>
+      <div class="course-card">
+        <h3>Trader de Elite</h3>
+        <p>Estratégias avançadas para se tornar um trader de elite e operar como profissionais institucionais.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="sobre">
+    <h2>Sobre a School Trader Academy</h2>
+    <p>Oferecemos cursos de trading profissional, incluindo Forex, análise técnica, Price Action, COT e estratégias institucionais para traders de todos os níveis em Angola.</p>
+  </section>
+
+  <footer>
+    &copy; 2025 School Trader Academy Angola | Todos os direitos reservados
+  </footer>
+
+</body>
+</html>
 

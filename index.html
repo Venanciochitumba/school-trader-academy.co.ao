@@ -239,6 +239,96 @@
             <p><i class="fas fa-phone-alt"></i> +244 933 094 640 / 953 682 067</p>
             <p><i class="fas fa-envelope"></i> venancioatrofiadojc@gmail.com</p>
         </div>
+<!-- Modal de compra -->
+<div class="modal fade" id="buyModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Confirmar Compra</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+      </div>
+      <div class="modal-body">
+        <form id="leadForm">
+          <input type="hidden" name="courseId" id="courseId" value="">
+          <div class="mb-3">
+            <input name="name" id="name" class="form-control" placeholder="Seu nome" required>
+          </div>
+          <div class="mb-3">
+            <input type="email" name="email" id="email" class="form-control" placeholder="Seu email" required>
+          </div>
+          <div class="mb-3">
+            <input name="phone" id="phone" class="form-control" placeholder="Telefone (ex: 244933...)" required>
+          </div>
+          <button type="submit" class="btn btn-primary w-100">Enviar e Continuar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Scripts necessários -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+
+<script>
+/* CONFIGURAÇÕES */
+const PROCESSING_MODE = 'formspree'; // 'wa' para WhatsApp direto | 'formspree' para formulário
+const WHATSAPP_NUMBER = '244933094640'; // <-- teu número
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/XXXXX'; // <-- substitui pelo link do teu Formspree
+
+/* BOTÃO DE COMPRA */
+function buyCourse(id){
+  const courseNames = {1:'Iniciante',2:'Intermediário',3:'Avançado'};
+  
+  if(PROCESSING_MODE === 'wa'){
+    const text = encodeURIComponent(`Olá, quero comprar o curso ${courseNames[id]} (id:${id}).`);
+    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${text}`, '_blank');
+    return;
+  }
+
+  // se for Formspree, abre modal
+  document.getElementById('courseId').value = id;
+  const modalEl = document.getElementById('buyModal');
+  const modal = new bootstrap.Modal(modalEl);
+  modal.show();
+}
+
+/* ENVIO DO FORMULÁRIO */
+document.addEventListener('DOMContentLoaded', function(){
+  const form = document.getElementById('leadForm');
+  form.addEventListener('submit', async function(e){
+    e.preventDefault();
+    const data = new FormData(form);
+
+    try{
+      const res = await fetch(FORMSPREE_ENDPOINT, {
+        method:'POST',
+        body: data,
+        headers:{ 'Accept':'application/json' }
+      });
+
+      if(res.ok){
+        Swal.fire('Obrigado!','Recebemos a sua solicitação. Vamos falar consigo em breve.','success');
+        bootstrap.Modal.getInstance(document.getElementById('buyModal')).hide();
+        form.reset();
+
+        // opcional: abrir WhatsApp depois de enviar
+        const courseId = data.get('courseId');
+        const courseNames = {1:'Iniciante',2:'Intermediário',3:'Avançado'};
+        const text = encodeURIComponent(`Olá, finalizei o registo para ${courseNames[courseId]}. Quero pagar.`);
+        setTimeout(()=> window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${text}`, '_blank'), 500);
+
+      } else {
+        Swal.fire('Erro','Não foi possível enviar. Tente de novo.','error');
+      }
+
+    } catch(err){
+      Swal.fire('Erro','Problema de rede. Tente novamente.','error');
+      console.error(err);
+    }
+  });
+});
+</script>
 
     </section>
     git clone https://github.com/SEU_USUARIO/SEU_REPO.git
@@ -247,3 +337,4 @@ cd SEU_REPO
 git add index.html
 git commit -m "Adicionar redirecionamento / formulário de compra"
 git push origin main   # ou master conforme o teu repo
+
